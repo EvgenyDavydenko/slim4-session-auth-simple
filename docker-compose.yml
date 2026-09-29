@@ -1,0 +1,19 @@
+services:
+    nginx-phpfpm:
+        build: docker
+        image: nginx-phpfpm:latest
+        container_name: nginx-phpfpm
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/var/www/backend
+        networks:
+            - docker_network
+
+networks:
+    docker_network:
+        driver: bridge
+
+# ps aux
+# supervisorctl status
+# docker logs nginx-phpfpm
